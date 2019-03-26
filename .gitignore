@@ -1,0 +1,12 @@
+*.out
+Makefile
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CPackConfig.cmake
+CPackSourceConfig.cmake
+CTestTestfile.cmake
+build/
+bin/
+gen/
+Testing/

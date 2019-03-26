@@ -1,0 +1,17 @@
+dist: xenial
+language: cpp
+compiler: clang
+before_script:
+  - sudo apt install libboost-test-dev -y
+  - sudo apt update
+  - sudo apt-install libspdlog-dev -y
+script: 
+  - cmake helloword/
+  - cmake --build helloworld/
+  - cmake --build helloworld/ --target test
+  - cmake --build helloworld/ --target package
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - curl -T helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ushebdim:$BINTRAY_API_KEY "https://api.bintray.com/content/shebdim/valeter/cppstudy-helloworld/$TRAVIS_BUILD_NUMBER/helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distibution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
