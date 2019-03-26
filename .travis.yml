@@ -6,10 +6,11 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install libspdlog-dev
 script: 
-  - cmake helloworld/
-  - cmake --build helloworld/
-  - cmake --build helloworld/ --target test
-  - cmake --build helloworld/ --target package
+  - cd helloworld/
+  - cmake .
+  - cmake --build .
+  - cmake . --target test
+  - cmake --build . --target package
 deploy:
   provider: script
   skip_cleanup: true
