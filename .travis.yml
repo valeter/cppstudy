@@ -9,10 +9,10 @@ script:
   - cd helloworld/
   - cmake .
   - cmake --build .
-  - cmake . --target test
+  - cmake --build . --target test
   - cmake --build . --target package
 deploy:
   provider: script
   skip_cleanup: true
   script:
-    - curl -T helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uvaleter:$BINTRAY_API_KEY https://api.bintray.com/content/valeter/cppstudy-helloworld/$TRAVIS_BUILD_NUMBER/helloworld-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distibution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+    - curl -T helloworld-all-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb -uvaleter:$BINTRAY_API_KEY https://api.bintray.com/content/valeter/cppstudy-helloworld/helloworld/$TRAVIS_BUILD_NUMBER/helloworld-all-1.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distibution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
