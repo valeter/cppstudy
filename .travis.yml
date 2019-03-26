@@ -6,7 +6,7 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install libspdlog-dev
 script: 
-  - cmake helloword/
+  - cmake helloworld/
   - cmake --build helloworld/
   - cmake --build helloworld/ --target test
   - cmake --build helloworld/ --target package
